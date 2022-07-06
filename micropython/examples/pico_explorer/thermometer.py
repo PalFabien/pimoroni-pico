@@ -1,13 +1,19 @@
 # This example takes the temperature from the Pico's onboard temperature sensor, and displays it on Pico Explorer, along with a little pixelly graph.
 # It's based on the thermometer example in the "Getting Started with MicroPython on the Raspberry Pi Pico" book, which is a great read if you're a beginner!
 
-import st7789
+# for pimoroni-pico version <1.19.
+# import st7789
+# for pimoroni-pico version >1.19.
+from picographics import PicoGraphics, DISPLAY_LCD_240X240
 import machine
 import utime
 
 # Pico Explorer boilerplate
-display = st7789.ST7789(st7789.DISPLAY_PICO_EXPLORER, rotate=0)
-display.set_palette_mode(st7789.PALETTE_USER)
+# for pimoroni-pico version <1.19.
+#display = st7789.ST7789(st7789.DISPLAY_PICO_EXPLORER, rotate=0)
+#display.set_palette_mode(st7789.PALETTE_USER)
+
+display = PicoGraphics(DISPLAY_LCD_240X240, rotate=0)
 display.set_backlight(1.0)
 
 WIDTH, HEIGHT = display.get_bounds()
